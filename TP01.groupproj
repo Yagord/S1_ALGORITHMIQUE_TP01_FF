@@ -1,0 +1,60 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{FB2A51A1-9103-42B6-9F99-24672B32F484}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="TP01HelloWorld.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TP01_EX02.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="TP01_EX03_CORRECTION_EX2.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="TP01HelloWorld">
+        <MSBuild Projects="TP01HelloWorld.dproj"/>
+    </Target>
+    <Target Name="TP01HelloWorld:Clean">
+        <MSBuild Projects="TP01HelloWorld.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TP01HelloWorld:Make">
+        <MSBuild Projects="TP01HelloWorld.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TP01_EX02">
+        <MSBuild Projects="TP01_EX02.dproj"/>
+    </Target>
+    <Target Name="TP01_EX02:Clean">
+        <MSBuild Projects="TP01_EX02.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TP01_EX02:Make">
+        <MSBuild Projects="TP01_EX02.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="TP01_EX03_CORRECTION_EX2">
+        <MSBuild Projects="TP01_EX03_CORRECTION_EX2.dproj"/>
+    </Target>
+    <Target Name="TP01_EX03_CORRECTION_EX2:Clean">
+        <MSBuild Projects="TP01_EX03_CORRECTION_EX2.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="TP01_EX03_CORRECTION_EX2:Make">
+        <MSBuild Projects="TP01_EX03_CORRECTION_EX2.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="TP01HelloWorld;TP01_EX02;TP01_EX03_CORRECTION_EX2"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="TP01HelloWorld:Clean;TP01_EX02:Clean;TP01_EX03_CORRECTION_EX2:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="TP01HelloWorld:Make;TP01_EX02:Make;TP01_EX03_CORRECTION_EX2:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
